@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcLike } from "react-icons/fc";
 import { BiShare } from "react-icons/bi";
 import { Users } from "../dummyData";
 const Post = ({ post }) => {
-	console.log(post);
+	const [like, setLike] = useState(post.like);
+	const [isLiked, setIsLiked] = useState(false);
+	const likeHandler = () => {
+		setLike(isLiked ? like - 1 : like + 1);
+		setIsLiked(isLiked ? false : true);
+	};
 	return (
 		<div className="justify-center flex">
-			<div className="flex flex-col gap-2 shadow-lg md:w-1/2">
+			<div className="flex flex-col gap-2 shadow-lg lg:w-2/3">
 				{/* //! image and username */}
 				<div className="flex items-center gap-2 p-1">
 					<img
@@ -32,7 +37,7 @@ const Post = ({ post }) => {
 				<div className="flex justify-between mx-4 py-2">
 					<div className="flex gap-2">
 						<div className="hover:-translate-y-1 transform transition">
-							<button>
+							<button onClick={likeHandler} className="border-none">
 								<FcLike />
 							</button>
 						</div>
@@ -42,7 +47,7 @@ const Post = ({ post }) => {
 							</button>
 						</div>
 					</div>
-					<div>{post?.like} people like it</div>
+					<div>{like} people like it</div>
 				</div>
 			</div>
 		</div>

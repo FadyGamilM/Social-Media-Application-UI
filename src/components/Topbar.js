@@ -7,23 +7,25 @@ import { BsFillChatSquareDotsFill } from "react-icons/bs";
 import { IoIosNotifications } from "react-icons/io";
 import { HiUserAdd } from "react-icons/hi";
 
-const Topbar = () => {
+const Topbar = ({ search }) => {
 	return (
-		<div className="border-b-2 pb-2 ">
+		<div className="border-b-2 pb-2 m-5">
 			{/* //TODO=> UPPER PART */}
 			<div className="grid grid-cols-3 items-center">
 				{/* //! Left part of the header */}
 				<div>
-					<div className="flex gap-2 items-center">
+					<div className="flex gap-2 items-center text-3xl">
 						<BiNetworkChart />
-						<h1>Socialaize</h1>
+						<h1 className="font-semibold text-slate-800 font-sans">
+							Socialaize
+						</h1>
 					</div>
 				</div>
 				{/* //! End of left part of the header */}
 				<div className="text-center items-center">
-					<div className="flex gap-4 sm:hidden">
-						<h1>Home</h1>
-						<h1>Profile</h1>
+					<div className="flex gap-4 sm:hidden ">
+						<h1 className="font-semibold text-slate-800">Home</h1>
+						<h1 className="font-semibold text-slate-800">Profile</h1>
 					</div>
 				</div>
 				{/* //! Right part of the header */}
@@ -51,16 +53,20 @@ const Topbar = () => {
 
 			{/* //TODO=> LOWER PART */}
 			{/* //! Center part of the header */}
-			<div className="mx-16 mt-5">
-				<div className="flex gap-2 items-center ring-2 ring-gray-500 rounded-lg p-2">
-					<FcSearch />
-					<input
-						type="text"
-						placeholder="Search"
-						className="border-none focus:border-none focus:outline-none font-semibold w-full"
-					/>
+			{search ? (
+				<div className="mx-16 mt-5">
+					<div className="flex gap-2 items-center ring-2 ring-gray-500 rounded-lg p-2">
+						<FcSearch />
+						<input
+							type="text"
+							placeholder="Search"
+							className="border-none focus:border-none focus:outline-none font-semibold w-full"
+						/>
+					</div>
 				</div>
-			</div>
+			) : (
+				<span></span>
+			)}
 			{/* //! End of Center part of the header */}
 		</div>
 	);
