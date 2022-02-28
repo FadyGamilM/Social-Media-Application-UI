@@ -7,7 +7,7 @@ const Home = () => {
 		<div className="p-4">
 			<Topbar />
 			<div className="flex gap-4 mt-2">
-				<div className="grow min-h-screen md:w-2/3">
+				<div className="grow min-h-screen">
 					<Feed />
 				</div>
 				<div className="w-1/3 min-h-screen p-2">
